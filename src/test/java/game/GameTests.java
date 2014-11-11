@@ -23,6 +23,14 @@ public class GameTests {
 	public void test() {
 		new Game();
 	    Mockito.verify(out).println("Welcome to Codebreaker!"); //only a requirement, not related to implementation!
+	    Mockito.verify(out).println("Enter guess:");
+	}
+	
+	@Test
+	public void testNoMatches() {
+		Game game = new Game("1234");
+		game.enterGuess("5555");
+	    Mockito.verify(out).println("");
 	}
 
 }
